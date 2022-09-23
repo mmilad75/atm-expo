@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://coinmap.org/api/v1/venues?lon1=4.738212970467703&lon2=4.974276995637395&lat1=52.28575172490815&lat2=52.429299380630255'
