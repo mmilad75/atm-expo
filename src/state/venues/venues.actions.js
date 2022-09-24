@@ -5,7 +5,6 @@ export const getVenues = () => async dispatch => {
 	dispatch(setLoading(true));
 	try {
 		const data = await getVenuesRequest();
-		console.log(data);
 		if (!data?.error) {
 			dispatch(getVenuesSuccess(data?.venues));
 		}
