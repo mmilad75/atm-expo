@@ -1,15 +1,19 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import {Text} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './src/state/store';
+import HomeScreen from './src/screens/Home';
+import {SafeAreaView} from 'react-native';
+import globalStyles from './src/helpers/styles';
 
 export default function App() {
 	return (
 		<Provider store={store}>
-			<Text>here</Text>
-			<StatusBar style='auto' />
+			<SafeAreaView style={globalStyles.fullFlex}>
+				<HomeScreen />
+				<StatusBar style='auto' />
+			</SafeAreaView>
 		</Provider>
 	);
 }

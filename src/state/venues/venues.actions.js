@@ -1,12 +1,13 @@
 import {GET_VENUES_FAILURE, GET_VENUES_SUCCESS, SET_LOADING} from './venues.types';
 import {getVenuesRequest} from '../../apis/venues.api';
 
-export const getVenues = () => dispatch => {
+export const getVenues = () => async dispatch => {
 	dispatch(setLoading(true));
 	try {
-		const data = getVenuesRequest();
+		const data = await getVenuesRequest();
+		console.log(data);
 		if (!data?.error) {
-			dispatch(getVenuesSuccess(data));
+			dispatch(getVenuesSuccess(data?.venues));
 		}
 	} catch (error) {
 		dispatch(getVenuesFailure(error));
