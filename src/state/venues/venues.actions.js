@@ -1,7 +1,8 @@
-import {GET_VENUES_FAILURE, GET_VENUES_SUCCESS} from './venues.types';
+import {GET_VENUES_FAILURE, GET_VENUES_SUCCESS, SET_LOADING} from './venues.types';
 import {getVenuesRequest} from '../../apis/venues.api';
 
 export const getVenues = () => dispatch => {
+	dispatch(setLoading(true));
 	try {
 		const data = getVenuesRequest();
 		if (!data?.error) {
@@ -11,6 +12,11 @@ export const getVenues = () => dispatch => {
 		dispatch(getVenuesFailure(error));
 	}
 };
+
+export const setLoading = payload => ({
+	type: SET_LOADING,
+	payload,
+});
 
 export const getVenuesSuccess = payload => ({
 	type: GET_VENUES_SUCCESS,
